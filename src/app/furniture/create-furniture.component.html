@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+      <h2>Create new Furniture</h2>
+      <h3 class="text-danger"><p *ngIf="error">{{error}}</p></h3>
+      <form method="post" #addFurniture="ngForm">
+        <div class="form-group">
+          <label for="make">Make</label>
+          <input
+            type="text"
+            class="form-control"
+            id="make"
+            name="make"
+            #make="ngModel"
+            [(ngModel)] = "furniture.make"
+            required />
+          <span [hidden]="make.valid || make.pristine">Make is required!</span>
+        </div>
+        <div class="form-group">
+          <label for="model">Model</label>
+          <input
+            type="text"
+            class="form-control"
+            id="model"
+            name="model"
+            #model="ngModel"
+            [(ngModel)] = "furniture.model"
+            required />
+          <span [hidden]="model.valid || model.pristine">Model is required!</span>
+        </div>
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input
+            type="number"
+            class="form-control"
+            id="year"
+            name="year"
+            [(ngModel)] = "furniture.year"
+            #year="ngModel"
+            required />
+          <span [hidden]="year.valid || year.pristine">Year is required!</span>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            #price="ngModel"
+            [(ngModel)] = "furniture.price"
+            required />
+          <span [hidden]="price.valid || price.pristine">Price is required!</span>
+        </div>
+        <div class="form-group">
+          <label for="image">IMG</label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="image"
+            #image="ngModel"
+            [(ngModel)] = "furniture.image"
+            required />
+          <span [hidden]="image.valid || image.pristine">Image is required!</span>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+            #description="ngModel"
+            [(ngModel)] = "furniture.description"
+            required ></textarea>
+          <span [hidden]="description.valid || description.pristine">Description is required!</span>
+        </div>
+        <div class="form-group">
+          <label for="material">Material</label>
+          <input
+            type="text"
+            class="form-control"
+            id="material"
+            name="material"
+            #material="ngModel"
+            [(ngModel)] = "furniture.material"/>
+        </div>
+
+        <button
+          class="btn btn-sm btn-success"
+          type="submit"
+          [disabled]="addFurniture.form.invalid" (click)="createFurniture()">Create</button>
+        <button class="btn btn-sm btn-warning" type="reset">Clear</button>
+      </form>
+    </div>
+  </div>
+</div>

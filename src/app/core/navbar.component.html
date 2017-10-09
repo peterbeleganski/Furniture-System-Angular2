@@ -1,0 +1,11 @@
+<div>
+  <a routerLink="/" class="btn btn-sm btn-success">Home</a>
+  <a routerLink="/users/register" *ngIf="!Auth.isUserAuthenticated()">Register</a>
+  <a routerLink="/users/login" *ngIf="!Auth.isUserAuthenticated()">Login</a>
+  <h3 *ngIf="isAuthenticated()">Hello, {{Auth.getUser()}}</h3>
+  <a *ngIf="Auth.isUserAuthenticated()" class="btn btn-sm btn-primary" routerLink="/furniture/create">Create</a>
+  <a *ngIf="Auth.isUserAuthenticated()" class="btn btn-sm btn-primary" routerLink="/furniture/all">List all</a>
+  <a *ngIf="Auth.isUserAuthenticated()" class="btn btn-sm btn-primary" routerLink="/profile/mine">My profile</a>
+  <a *ngIf="Auth.isUserAuthenticated()" class="btn btn-sm btn-danger" (click)="logout()">Logout</a>
+</div>
+

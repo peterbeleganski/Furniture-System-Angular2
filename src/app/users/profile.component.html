@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>My furniture</h1>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" *ngFor="let furn of furnitures">
+      <div class="jumbotron">
+        <img src="{{furn.image}}" alt="car img" width="300px">
+        <p>Make: {{furn.make}}</p>
+        <p>Model: {{furn.model}}</p>
+        <p>year: {{furn.year}}</p>
+        <a routerLink="/furniture/details/{{furn.id}}" class="btn btn-sm btn-info">Details</a>
+        <button (click)="deleteFurniture(furn.id)" class="btn btn-sm btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

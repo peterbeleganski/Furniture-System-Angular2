@@ -1,0 +1,39 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-default"  (click)="goPrev()">Prev</button>
+      <button class="btn btn-default"  (click)="goNext()">Next</button>
+    </div>
+    <div class="col-md-5">
+      <input type="text" width="300px" [(ngModel)] = "search" class="form-control" placeholder="Search">
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-sm btn-primary" (click)="searchForFurniture()">Go</button>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="text-danger" *ngIf="furnitures.length === 0">
+      No more Furniture to show!
+    </div>
+    <div class="col-md-6" *ngFor="let furn of furnitures">
+      <div class="jumbotron">
+        <img src="{{furn.image}}" alt="car img" width="300px">
+        <p>Make: {{furn.make}}</p>
+        <p>Model: {{furn.model}}</p>
+        <p>year: {{furn.year}}</p>
+        <a routerLink="/furniture/details/{{furn.id}}" class="btn btn-sm btn-info">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
